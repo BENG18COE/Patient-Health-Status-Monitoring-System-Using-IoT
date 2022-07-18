@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %} 
+     Patient List
+{% endblock %} 
+   
+{% block content %} 
+    <h1 class="Display-1">
+        Graphs
+    </h1>
+    <div class="container">
+
+      <ul>
+
+        {% for item in deleteRec%}
+        <li>
+          {{item.temperature}} | {{item.heart_rate}} {{item.sensor_Id}}
+        </li>
+
+        {% endfor %}
+       
+      </ul>
+
+    
+    </div>
+{% endblock %} 

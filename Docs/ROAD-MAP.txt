@@ -1,0 +1,52 @@
+PROJECT BOOK CHAPTERS 
+
+
+1. SYSTEM ANALYSIS AND DESIGN
+
+=> SW ANALYSIS
+	*SW requirements specifications _Funtional Requirent + _Non Funtional requiremetns.
+	*Use case [ patient , Healthcare giver]
+	*data flow
+	*Tools  { language , flamework, coding tool ,  }
+	*DB {data  and relationships}
+	*
+
+=>HW ANALYSIS
+	
+	*Tools and system component ===Controll unit + Sensors and communitations unit  |{power supply , node mcu , 16/2 i2c display, temperature and hR sensors }
+		Each on features.
+	
+	*Hardware programming {tools - arduiono IDE, temp Library, and HR library , Language}
+	*Enclosure
+		=specifications and dimentions source .
+
+=>SYSTEM DESIGNS
+	*Web interface 
+	*Hardware interfacing
+	*Communications
+
+
+
+2.SYSTEM IMPLEMENTATION
+
+=>SW IMPLEMENTAION
+	+coding 
+	+bootstrap implementation
+	+Deploying a web App.
+
+=>HW IMPLEMENTATI
+	+Reprograminig
+	+Circuit
+	+
+
+=> SYSTEM IMPLEMENTATION.
+
+
+3.CONCLUSION AND RECOMMENTATIONS
+
+=>CONCLUSION
+
+
+=>RECOMMENDATIONS
+
+

@@ -1,0 +1,31 @@
+Esp 8066 
+link db
+
+long randNumber;
+
+void setup() {
+  Serial.begin(9600);
+
+  // if analog input pin 0 is unconnected, random analog
+  // noise will cause the call to randomSeed() to generate
+  // different seed numbers each time the sketch runs.
+  // randomSeed() will then shuffle the random function.
+  randomSeed(analogRead(0));
+}
+
+void loop() {
+  // print a random number from 0 to 299
+  randNumber = random(300);
+  Serial.println(randNumber);
+
+  // print a random number from 10 to 19
+  randNumber = random(10, 20);
+  Serial.println(randNumber);
+
+  delay(50);
+}
+
+$ source virtual/Scripts/activate
+
+
+postgres://kiyjxcfsojujet:9ddc7c2f5ab88dbb0a764e34f1d54561020d36463e8985215fe6ec02a1ee05a9@ec2-52-204-195-41.compute-1.amazonaws.com:5432/d16vlocu92l8pg

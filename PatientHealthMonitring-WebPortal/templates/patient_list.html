@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block title %} 
+     Patient List
+{% endblock %} 
+   
+{% block content %} 
+    <h1 class="Display-1">
+        Patient Enrolled
+        <small class="text-warning">  {{patients.total}}</small>
+    </h1>
+<div class="container">
+
+
+    <div class="row">
+        {%if patients.total != 0%}
+        <table class="table table-stripped">
+           
+            <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Patient Name</th>
+                  <th scope="col">Ward/Bed No</th>
+                  <th scope="col">Incharge</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Assign Sensor</th>
+                  <th scope="col">Action</th>
+
+                </tr>
+              </thead>
+              <tbody>
+              
+               {% for patient in patients.items %}
+               <tr>
+                <td>{{patient.id}}</td>
+                <td>{{patient.last_name}} |  {{patient.first_name}}</td>
+                <td>{{patient.ward_name}}/{{patient.bed_number}}</td>
+                <td>{{patient.doctor_incharge}}</td>
+                <td>{{patient.patient_conditon}}</td>
+                <td>
+                    {% if patient.node_number != 0 %}
+                    <a href="/patient-status/{{patient.id}}" class="btn btn-success btn-sm">
+                        Node|{{patient.node_number}} Records
+                    </a>
+                {% endif %}
+
+                {% if patient.node_number == 0 %}
+                <small class="text text-warning">Not Assigned</small>
+                  {% endif %}
+                
+                   </td>
+                   <td>
+                    {% if patient.node_number != 0 %}
+                        <!-- Button trigger modal -->
+                        <a href="/remove/{{patient.id}}" class="btn btn-danger btn-sm">Remove</a>                  
+                {% endif %}
+
+                {% if patient.node_number == 0 %}
+                <a href="/assign/{{patient.id}}" class="btn btn-primary btn-sm">Assign</a>
+                  {% endif %}
+                
+                   </td>
+              </tr>
+               {% endfor %}
+               
+              </tbody>
+              
+          </table>
+         
+{%endif%}    
+    </div>
+ <div class="pagination">
+    <p class="text-secondary pt-1 p-1">
+        <b>Pages</b>
+    </p>
+    {% for page_num in patients.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2 ) %}
+    {% if page_num %}
+            {% if patients.page ==page_num %}
+            <a href="{{url_for('patientEnrolled',page=page_num)}}" 
+            class="btn btn-primary mb-4 m-1">{{page_num}}</a>
+            {% else %} 
+            <a href="{{url_for('patientEnrolled',page=page_num)}}" 
+            class="btn btn-outline-info mb-4 m-1">{{page_num}}</a>
+            {% endif %}
+      {% else %}
+    ...
+    {% endif %}
+
+    {% endfor %}
+ </div>
+</div>
+{% endblock %} 
